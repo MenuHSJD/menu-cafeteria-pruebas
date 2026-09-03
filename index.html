@@ -372,16 +372,27 @@ VEGANO
 
 <div class="bloque">
 
-<div class="titulo-bloque postre">
-POSTRE
+    <div class="titulo-bloque postre">
+        POSTRE
+    </div>
+
+    <div class="cuerpo-bloque postre-cuerpo" id="cnpostre"></div>
+
+</div>
+
+</div>
 </div>
 
 <div class="iptv-panel">
-<div class="tv-placeholder"></div>
+    <div class="tv-placeholder"></div>
 </div>
+
 </div>
+
 <div class="footer">
+
     <div id="creditosAlergenos">
+
         <img src="gluten.svg" class="icono-alergeno">
         Puede contener gluten
 
@@ -389,12 +400,17 @@ POSTRE
 
         <img src="lacteos.svg" class="icono-alergeno">
         Puede contener lácteos
+
     </div>
 
     <div id="creditosFinales">
         Buen provecho · Enjoy your meal · Bon appétit ·
         شهية طيبة · 祝您用餐愉快 · 맛있게 드세요 · 召し上がれ
     </div>
+
+</div>
+
+</div>
 </div>
 <script>
 
@@ -722,6 +738,16 @@ async function cargar() {
 
         document.getElementById("cnveg").innerHTML =
             pintar(filtrar("Cena", "Vegano"));
+        
+        document.getElementById("cpostre").innerHTML =
+    idiomaActual === "CAT"
+        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
+        : '<div class="item">PREGUNTA POR EL PLATO</div>';
+
+document.getElementById("cnpostre").innerHTML =
+    idiomaActual === "CAT"
+        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
+        : '<div class="item">PREGUNTA POR EL PLATO</div>';
 
        
     }
