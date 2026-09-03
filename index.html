@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú Cafetería SJD</title>
+
+<style>
+@font-face {
+    font-family: 'Ciutadella';
+    src: url('Ciutadella-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ciutadella';
+    src: url('Ciutadella-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:transparent;
+    font-family:'Ciutadella', Arial, sans-serif;
+}
+.header{
+    background:#B05AB1;
+    color:white;
+
+    padding:12px 30px;
+
+    position:relative;
+}
+
+.titulo{
+    font-size:clamp(26px, 2.5vw, 42px);
+    font-weight:600;
+}
+.subtitulo{
+    font-size:20px;
+    opacity:0.95;
+}
+
+.container{
+    display:flex;
+    height:calc(100vh - 105px);
+    width:100%;
+    overflow:hidden;
+}
+
+.numero-dia{
+    font-size:90px;
+    font-weight:bold;
+    line-height:1;
+    color:#8A278C;
+    margin-top:20px;
+}
+
+.mes{
+    font-size:24px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.anio{
+    font-size:18px;
+    color:#666;
+}
+
+.dia-es{
+    font-size:24px;
+    margin-top:25px;
+    color:#666;
+    font-weight:bold;
+}
+
+.content{
+    flex:1;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:transparent;
+}
+
+.pantalla{
+    flex:1;
+
+    display:grid;
+    grid-template-columns:32% 68%;
+
+    gap:20px;
+
+    overflow:hidden;
+
+    background:transparent;
+}
+.iptv-panel{
+    grid-column:2;
+    grid-row:1;
+
+    width:100%;
+    height:100%;
+
+    padding:0;
+
+    background:transparent;
+}
+
+.columna{
+    width:100%;
+}
+
+.servicio{
+    background:#D92D0F;
+    color:white;
+
+    text-align:center;
+
+    padding:12px;
+
+    font-size:28px;
+    font-weight:600;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+}
+
+.bloque{
+
+    background:white;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    margin-bottom:14px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,0.08);
+}
+
+.titulo-bloque{
+
+    text-align:center;
+
+    padding:14px;
+
+    font-size:24px;
+
+    font-weight:600;
+}
+
+.primero{
+  background:#FDE4C2;
+    color:#C76B00;
+}
+
+.segundo{
+    background:#FDE4C2;
+    color:#C76B00;
+}
+
+.vegano{
+    background:#9fd48c;
+}
+
+.postre{
+    background:#FDE4C2;
+    color:#C76B00;
+}
+
+.cuerpo-bloque{
+    padding:12px;
+    height:160px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+.item{
+    font-size:clamp(20px, 1.4vw, 24px);
+    font-weight:600;
+    text-transform:uppercase;
+    text-align:center;
+    margin:8px 0;
+    line-height:1.2;
+}
+.tv-placeholder{
+    width:100%;
+    height:100%;
+
+    min-height:0;
+
+    background:transparent;
+}
+.menu-panel{
+    grid-column:1;
+    grid-row:1;
+
+    width:100%;
+    height:100%;
+
+    background:transparent;
+}
+.postre-cuerpo{
+    height:70px;
+    padding:6px;
+}
+.header-texto{
+    flex:1;
+}
+
+.logo-sjd{
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    height:55px;
+    width:auto;
+
+    object-fit:contain;
+}
+.footer{
+    flex-shrink:0;
+    width:100%;
+    text-align:center;
+    font-size:17px;
+    color:#666;
+    margin-top:10px;
+    background:transparent;
+    line-height:1.4;
+}
+html,
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+    background:transparent;
+}
+    .item-con-iconos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin:8px 0;
+}
+
+.item-texto{
+    text-transform:uppercase;
+}
+
+.icono-alergeno{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="header-texto">
+        <div class="titulo" id="tituloSemana">
+            MENÚ CAFETERIA
+        </div>
+
+        <div class="subtitulo" id="fechaCabecera">
+            Hospital Sant Joan de Déu Barcelona
+        </div>
+    </div>
+
+  <img src="SJD%20MARCA.png"
+     class="logo-sjd">
+  
+
+</div>
+
+<div class="container">
+<!-- INICIO CONTENT -->
+<div class="content">
+<div class="pantalla">
+<div class="menu-panel">
+<div class="columna" id="menuComida">
+<div class="servicio">
+DINAR / COMIDA
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque primero">
+PRIMER / PRIMERO
+</div>
+
+<div class="cuerpo-bloque" id="cp"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque segundo">
+SEGON / SEGUNDO
+</div>
+
+<div class="cuerpo-bloque" id="cs"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque vegano">
+VEGÀ / VEGANO
+</div>
+
+<div class="cuerpo-bloque" id="cveg"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque postre">
+POSTRE
+</div>
+
+<div class="cuerpo-bloque postre-cuerpo" id="cpostre"></div>
+</div>
+
+</div>
+
+<div class="columna" id="menuCena">
+
+<div class="servicio">
+SOPAR / CENA
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque primero">
+PRIMER / PRIMERO
+</div>
+
+<div class="cuerpo-bloque" id="cnp"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque segundo">
+SEGON / SEGUNDO
+</div>
+
+<div class="cuerpo-bloque" id="cns"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque vegano">
+VEGÀ / VEGANO
+</div>
+
+<div class="cuerpo-bloque" id="cnveg"></div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo-bloque postre">
+POSTRE
+</div>
+
+<div class="cuerpo-bloque postre-cuerpo" id="cnpostre"></div>
+</div>
+</div>
+
+</div>
+
+<div class="iptv-panel">
+<div class="tv-placeholder"></div>
+</div>
+</div>
+<div class="footer">
+    <img src="gluten.svg" class="icono-alergeno">
+    Pot contenir gluten · Puede contener gluten
+
+    &nbsp;&nbsp;&nbsp;
+
+    <img src="lacteos.svg" class="icono-alergeno">
+    Pot contenir lactis · Puede contener lácteos
+
+    <br>
+
+    Bon profit · Buen provecho · Enjoy your meal · Bon appétit ·
+    شهية طيبة · 祝您用餐愉快 · 맛있게 드세요 · 召し上がれ
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const URL_JSON =
+"https://script.google.com/macros/s/AKfycbx0JiNXhFy5NTiDU9Zhrp5Ym1OTsDEjnQswsmuRzpnZR6mMbGM-O_JHKwV4jxAYkpdcdQ/exec";
+
+const CAT = {
+"Lunes":"DILLUNS",
+"Martes":"DIMARTS",
+"Miércoles":"DIMECRES",
+"Jueves":"DIJOUS",
+"Viernes":"DIVENDRES",
+"Sabado":"DISSABTE",
+"Sábado":"DISSABTE",
+"Domingo":"DIUMENGE"
+};
+
+const MESES_CAT = [
+"GENER",
+"FEBRER",
+"MARÇ",
+"ABRIL",
+"MAIG",
+"JUNY",
+"JULIOL",
+"AGOST",
+"SETEMBRE",
+"OCTUBRE",
+"NOVEMBRE",
+"DESEMBRE"
+];
+
+function semanaMes(fecha){
+    return Math.ceil(fecha.getDate()/7);
+}
+
+async function cargar(){
+
+try{
+
+const respuesta =
+await fetch(URL_JSON + "?t=" + Date.now());
+
+const datos =
+await respuesta.json();
+
+const hoy = new Date();
+const minutosActuales =
+hoy.getHours() * 60 +
+hoy.getMinutes();
+
+const esComida =
+minutosActuales < 915;
+const yyyy = hoy.getFullYear();
+const mm = String(hoy.getMonth()+1).padStart(2,"0");
+const dd = String(hoy.getDate()).padStart(2,"0");
+
+const fechaISO =
+`${yyyy}-${mm}-${dd}`;
+
+const registros =
+datos.filter(x =>
+String(x.Fecha).startsWith(fechaISO)
+);
+
+if(registros.length===0){
+    return;
+}
+
+const diaES =
+registros[0].Dia;
+
+document.getElementById("tituloSemana").innerHTML =
+"MENÚ CAFETERIA";
+
+document.getElementById("fechaCabecera").innerHTML =
+"Hospital Sant Joan de Déu Barcelona · " +
+(CAT[diaES] || diaES.toUpperCase()) +
+" " +
+dd + " " +
+MESES_CAT[hoy.getMonth()];
+
+document.getElementById("menuComida").style.display =
+esComida ? "block" : "none";
+
+document.getElementById("menuCena").style.display =
+esComida ? "none" : "block";
+
+function filtrar(servicio,categoria){
+
+return registros.filter(x =>
+x.Servicio===servicio &&
+x.Categoria===categoria &&
+x.Activo==="SI"
+);
+
+}
+    const PALABRAS_GLUTEN = [
+    "PAN",
+    "PASTA",
+    "MACARRONES",
+    "ESPAGUETIS",
+    "FIDEOS",
+    "LASAÑA",
+    "LASAÑA",
+    "CANELONES",
+    "CROQUETA",
+    "CROQUETAS",
+    "PIZZA",
+    "EMPANADA",
+    "REBOZADO",
+    "HARINA",
+    "TRIGO"
+];
+
+const PALABRAS_LACTEOS = [
+    "QUESO",
+    "MOZZARELLA",
+    "PARMESANO",
+    "CHEDDAR",
+    "LECHE",
+    "NATA",
+    "YOGUR",
+    "BECHAMEL",
+    "MANTEQUILLA",
+    "GRATINADO"
+];
+
+function pintar(lista){
+
+return lista.map(x => {
+
+const nombre = (x.Plato_Cat || "").toUpperCase();
+
+const tieneGluten =
+String(x.Gluten || "").toUpperCase() === "SI";
+
+const tieneLacteos =
+String(x.Lacteos || "").toUpperCase() === "SI";
+
+return `
+<div class="item item-con-iconos">
+
+    <span class="item-texto">
+        ${x.Plato_Cat}
+    </span>
+
+    ${
+        tieneGluten
+        ? '<img src="gluten.svg" class="icono-alergeno">'
+        : ''
+    }
+
+    ${
+        tieneLacteos
+        ? '<img src="lacteos.svg" class="icono-alergeno">'
+        : ''
+    }
+
+</div>
+`;
+
+}).join("");
+
+}
+
+cp.innerHTML =
+pintar(filtrar("Comida","Primero"));
+
+cs.innerHTML =
+pintar(filtrar("Comida","Segundo"));
+
+cveg.innerHTML =
+pintar(filtrar("Comida","Vegano"));
+
+cpostre.innerHTML =
+'<div class="item">Pregunta por el plato / Pregunta per el plat</div>';
+
+cnp.innerHTML =
+pintar(filtrar("Cena","Primero"));
+
+cns.innerHTML =
+pintar(filtrar("Cena","Segundo"));
+
+cnveg.innerHTML =
+pintar(filtrar("Cena","Vegano"));
+
+cnpostre.innerHTML =
+'<div class="item">Pregunta por el plato / Pregunta per el plat</div>';
+
+}
+catch(e){
+console.error(e);
+}
+
+}
+
+cargar();
+setInterval(cargar,60000);
+
+</script>
+
+</body>
+</html>
