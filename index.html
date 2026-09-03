@@ -740,40 +740,40 @@ async function cargar() {
                 ? '<div class="item">PREGUNTA PER EL PLAT</div>'
                 : '<div class="item">PREGUNTA POR EL PLATO</div>';
 
-        document.getElementById("cnpostre").innerHTML =
-            idiomaActual === "CAT"
-                ? '<div class="item">PREGUNTA PER EL PLAT</div>'
-                : '<div class="item">PREGUNTA POR EL PLATO</div>';
+      document.getElementById("cnpostre").innerHTML =
+    idiomaActual === "CAT"
+        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
+        : '<div class="item">PREGUNTA POR EL PLATO</div>';
 
-     *  }
+    }
     catch (e) {
 
-        conso*e.error("Error cargando el menú:",*e);
+        console.error("Error cargando el menú:", e);
 
     }
 
 }
 
 /*
-Carga inicial en*castellano.
+Carga inicial en castellano.
 */
 cargar();
 
 /*
-Cada *5 segundos cambia únicamente el id*oma.
-El servicio Comida o Cena con*inúa dependiendo del horario.
+Cada 15 segundos cambia únicamente el idioma.
+El servicio Comida o Cena continúa dependiendo del horario.
 */
-s*tInterval(() => {
+setInterval(() => {
 
-    idiomaActua* =
+    idiomaActual =
         idiomaActual === "ES"
- *          ? "CAT"
-            : "E*";
+            ? "CAT"
+            : "ES";
 
     cargar();
 
 }, 15000);
 
-</s*ript>
+</script>
 </body>
 </html>
