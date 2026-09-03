@@ -214,10 +214,7 @@ body{
 
     background:transparent;
 }
-.postre-cuerpo{
-    height:70px;
-    padding:6px;
-}
+
 .header-texto{
     flex:1;
 }
@@ -337,9 +334,6 @@ VEGANO
 POSTRE
 </div>
 
-<div class="cuerpo-bloque postre-cuerpo" id="cpostre"></div>
-</div>
-
 </div>
 
 <div class="columna" id="menuCena">
@@ -380,12 +374,6 @@ VEGANO
 
 <div class="titulo-bloque postre">
 POSTRE
-</div>
-
-<div class="cuerpo-bloque postre-cuerpo" id="cnpostre"></div>
-</div>
-</div>
-
 </div>
 
 <div class="iptv-panel">
@@ -735,16 +723,7 @@ async function cargar() {
         document.getElementById("cnveg").innerHTML =
             pintar(filtrar("Cena", "Vegano"));
 
-        document.getElementById("cpostre").innerHTML =
-            idiomaActual === "CAT"
-                ? '<div class="item">PREGUNTA PER EL PLAT</div>'
-                : '<div class="item">PREGUNTA POR EL PLATO</div>';
-
-      document.getElementById("cnpostre").innerHTML =
-    idiomaActual === "CAT"
-        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
-        : '<div class="item">PREGUNTA POR EL PLATO</div>';
-
+       
     }
     catch (e) {
 
