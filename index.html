@@ -744,33 +744,35 @@ async function cargar() {
                 ? '<div class="item">PREGUNTA PER EL PLAT</div>'
                 : '<div class="item">PREGUNTA POR EL PLATO</div>';
 
-     }
-    catch*(e) {
+     *  }
+    catch (e) {
 
-        console.error("Erro* cargando el menú:", e);
+        conso*e.error("Error cargando el menú:",*e);
 
     }
 
-}*
+}
+
 /*
-Carga inicial en castellano.
-**
+Carga inicial en*castellano.
+*/
 cargar();
 
 /*
-Cada 15 segundos ca*bia únicamente el idioma.
-El servi*io Comida o Cena continúa dependie*do del horario.
+Cada *5 segundos cambia únicamente el id*oma.
+El servicio Comida o Cena con*inúa dependiendo del horario.
 */
-setInterval(() *> {
+s*tInterval(() => {
 
-    idiomaActual =
-        id*omaActual === "ES"
-            ? "*AT"
-            : "ES";
+    idiomaActua* =
+        idiomaActual === "ES"
+ *          ? "CAT"
+            : "E*";
 
-    carga*();
+    cargar();
 
 }, 15000);
 
-</script>
-</body>*</html>
+</s*ript>
+</body>
+</html>
