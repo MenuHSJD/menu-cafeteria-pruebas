@@ -418,6 +418,8 @@ POSTRE
 const URL_JSON =
 "https://script.google.com/macros/s/AKfycbx0JiNXhFy5NTiDU9Zhrp5Ym1OTsDEjnQswsmuRzpnZR6mMbGM-O_JHKwV4jxAYkpdcdQ/exec";
 
+let servicioActual = "Comida";
+
 const CAT = {
 "Lunes":"DILLUNS",
 "Martes":"DIMARTS",
@@ -459,12 +461,10 @@ const datos =
 await respuesta.json();
 
 const hoy = new Date();
-const minutosActuales =
-hoy.getHours() * 60 +
-hoy.getMinutes();
-
+    
 const esComida =
-minutosActuales < 915;
+servicioActual === "Comida";
+    
 const yyyy = hoy.getFullYear();
 const mm = String(hoy.getMonth()+1).padStart(2,"0");
 const dd = String(hoy.getDate()).padStart(2,"0");
@@ -610,7 +610,17 @@ console.error(e);
 }
 
 cargar();
-setInterval(cargar,60000);
+
+setInterval(() => {
+
+    servicioActual =
+        servicioActual === "Comida"
+        ? "Cena"
+        : "Comida";
+
+    cargar();
+
+}, 60000);
 
 </script>
 
