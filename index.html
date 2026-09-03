@@ -297,14 +297,14 @@ body{
 <div class="pantalla">
 <div class="menu-panel">
 <div class="columna" id="menuComida">
-<div class="servicio">
-DINAR / COMIDA
+<div class="servicio" id="tituloServicioComida">
+COMIDA
 </div>
 
 <div class="bloque">
 
-<div class="titulo-bloque primero">
-PRIMER / PRIMERO
+<div class="titulo-bloque primero" id="tituloPrimeroComida">
+PRIMERO
 </div>
 
 <div class="cuerpo-bloque" id="cp"></div>
@@ -313,8 +313,8 @@ PRIMER / PRIMERO
 
 <div class="bloque">
 
-<div class="titulo-bloque segundo">
-SEGON / SEGUNDO
+<div class="titulo-bloque segundo" id="tituloSegundoComida">
+SEGUNDO
 </div>
 
 <div class="cuerpo-bloque" id="cs"></div>
@@ -323,10 +323,9 @@ SEGON / SEGUNDO
 
 <div class="bloque">
 
-<div class="titulo-bloque vegano">
-VEGÀ / VEGANO
+<div class="titulo-bloque vegano" id="tituloVeganoComida">
+VEGANO
 </div>
-
 <div class="cuerpo-bloque" id="cveg"></div>
 
 </div>
@@ -344,24 +343,23 @@ POSTRE
 
 <div class="columna" id="menuCena">
 
-<div class="servicio">
-SOPAR / CENA
+<div class="servicio" id="tituloServicioCena">
+CENA
 </div>
 
 <div class="bloque">
 
-<div class="titulo-bloque primero">
-PRIMER / PRIMERO
+<div class="titulo-bloque primero" id="tituloPrimeroCena">
+PRIMERO
 </div>
-
 <div class="cuerpo-bloque" id="cnp"></div>
 
 </div>
 
 <div class="bloque">
 
-<div class="titulo-bloque segundo">
-SEGON / SEGUNDO
+<div class="titulo-bloque segundo" id="tituloSegundoCena">
+SEGUNDO
 </div>
 
 <div class="cuerpo-bloque" id="cns"></div>
@@ -370,10 +368,9 @@ SEGON / SEGUNDO
 
 <div class="bloque">
 
-<div class="titulo-bloque vegano">
-VEGÀ / VEGANO
+<div class="titulo-bloque vegano" id="tituloVeganoCena">
+VEGANO
 </div>
-
 <div class="cuerpo-bloque" id="cnveg"></div>
 
 </div>
@@ -395,24 +392,21 @@ POSTRE
 </div>
 </div>
 <div class="footer">
-    <img src="gluten.svg" class="icono-alergeno">
-    Pot contenir gluten · Puede contener gluten
+    <div id="creditosAlergenos">
+        <img src="gluten.svg" class="icono-alergeno">
+        Puede contener gluten
 
-    &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
 
-    <img src="lacteos.svg" class="icono-alergeno">
-    Pot contenir lactis · Puede contener lácteos
+        <img src="lacteos.svg" class="icono-alergeno">
+        Puede contener lácteos
+    </div>
 
-    <br>
-
-    Bon profit · Buen provecho · Enjoy your meal · Bon appétit ·
-    شهية طيبة · 祝您用餐愉快 · 맛있게 드세요 · 召し上がれ
+    <div id="creditosFinales">
+        Buen provecho · Enjoy your meal · Bon appétit ·
+        شهية طيبة · 祝您用餐愉快 · 맛있게 드세요 · 召し上がれ
+    </div>
 </div>
-
-</div>
-
-</div>
-
 <script>
 
 const URL_JSON =
