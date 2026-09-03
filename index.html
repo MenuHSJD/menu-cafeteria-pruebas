@@ -476,15 +476,7 @@ Sincroniza el idioma con el minuto del reloj.
 Minuto par: castellano.
 Minuto impar: catalán.
 */
-function actualizarIdioma() {
 
-    const minutoActual = new Date().getMinutes();
-
-    idiomaActual =
-        minutoActual % 2 === 0
-            ? "ES"
-            : "CAT";
-}
 
 async function cargar() {
 
@@ -762,18 +754,23 @@ async function cargar() {
 }
 
 /*
-Carga inicial.
+/*
+Carga inicial en castellan*.
 */
-actualizarIdioma();
 cargar();
 
 /*
-Cada minuto se actualiza únicamente el idioma.
+Cada 15 segundo* cambia únicamente el idioma.
+El s*rvicio Comida o Cena continúa depe*diendo del horario.
 */
-setInterval(() => {
+setInterval*() => {
 
-    actualizarIdioma();
-    cargar();
+    idiomaActual =
+      * idiomaActual === "ES"
+           *? "CAT"
+            : "ES";
+
+    c*rgar();
 
 }, 15000);
 
