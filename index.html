@@ -336,6 +336,8 @@ POSTRE
 
 </div>
 
+</div>
+
 <div class="columna" id="menuCena">
 
 <div class="servicio" id="tituloServicioCena">
@@ -376,10 +378,7 @@ VEGANO
         POSTRE
     </div>
 
-    <div class="cuerpo-bloque postre-cuerpo" id="cnpostre"></div>
-
 </div>
-
 </div>
 </div>
 
@@ -739,15 +738,7 @@ async function cargar() {
         document.getElementById("cnveg").innerHTML =
             pintar(filtrar("Cena", "Vegano"));
         
-        document.getElementById("cpostre").innerHTML =
-    idiomaActual === "CAT"
-        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
-        : '<div class="item">PREGUNTA POR EL PLATO</div>';
-
-document.getElementById("cnpostre").innerHTML =
-    idiomaActual === "CAT"
-        ? '<div class="item">PREGUNTA PER EL PLAT</div>'
-        : '<div class="item">PREGUNTA POR EL PLATO</div>';
+     
 
        
     }
