@@ -431,12 +431,14 @@ VEGANO
 const URL_JSON =
 "https://script.google.com/macros/s/AKfycbx0JiNXhFy5NTiDU9Zhrp5Ym1OTsDEjnQswsmuRzpnZR6mMbGM-O_JHKwV4jxAYkpdcdQ/exec";
 
+
 /*
 Minuto par: castellano.
 Minuto impar: catalán.
 */
-let idiomaActual = "ES";
-
+let datosMenu = [];
+let idiomaActual = "";
+let cargandoDatos = false;
 const DIAS_CAT = {
     "Lunes": "DILLUNS",
     "Martes": "DIMARTS",
@@ -490,22 +492,101 @@ const MESES_ES = [
 ];
 
 /*
-Sincroniza el idioma con el minuto del reloj.
+El idioma se calcula usando bloques exactos
+de 15 segundos del reloj:
 
-Minuto par: castellano.
-Minuto impar: catalán.
+00-14: castellano
+15-29: catalán
+30-44: castellano
+45-59: catalán
 */
+function obtenerIdiomaDelReloj() {
 
+    const ahora = new Date();
 
-async function cargar() {
+    const bloqueActual =
+        Math.floor(ahora.getSeconds() / 15);
+
+    return bloqueActual % 2 === 0
+        ? "ES"
+        : "CAT";
+}
+
+/*
+Solo vuelve a pintar la pantalla cuando cambia
+el idioma o cuando se fuerza la actualización.
+*/
+function actualizarPantalla(forzar) {
+
+    const nuevoIdioma =
+        obtenerIdiomaDelReloj();
+
+    if (forzar || nuevoIdioma !== idiomaActual) {
+
+        idiomaActual =
+            nuevoIdioma;
+
+        cargar();
+    }
+}
+
+async function actualizarDatos() {
+
+    if (cargandoDatos) {
+        return;
+    }
+
+    cargandoDatos = true;
 
     try {
 
         const respuesta =
             await fetch(URL_JSON + "?t=" + Date.now());
 
-        const datos =
+        if (!respuesta.ok) {
+            throw new Error(
+                "Error HTTP al cargar el JSON: " +
+                respuesta.status
+            );
+        }
+
+        const nuevosDatos =
             await respuesta.json();
+
+        if (Array.isArray(nuevosDatos)) {
+
+            datosMenu = nuevosDatos;
+
+            actualizarPantalla(true);
+
+        }
+
+    }
+    catch (e) {
+
+        console.error(
+            "Error actualizando los datos del menú:",
+            e
+        );
+
+    }
+    finally {
+
+        cargandoDatos = false;
+
+    }
+
+}
+
+function cargar() {
+
+    try {
+
+        const datos = datosMenu;
+
+        if (!Array.isArray(datos) || datos.length === 0) {
+            return;
+        }
 
         const ahora = new Date();
 
@@ -766,25 +847,49 @@ async function cargar() {
 }
 
 /*
-Carga inicial en castellano.
+Idioma inicial sincronizado con el reloj.
 */
-cargar();
+idiomaActual = obtenerIdiomaDelReloj();
 
 /*
-Cada 15 segundos cambia únicamente el idioma.
-El servicio Comida o Cena continúa dependiendo del horario.
+Descarga inicial de los datos.
+Cuando termine, se pintará la pantalla.
 */
-setInterval(() => {
+actualizarDatos();
 
-    idiomaActual =
-        idiomaActual === "ES"
-            ? "CAT"
-            : "ES";
+/*
+Programa cada cambio en los segundos exactos:
+00, 15, 30 y 45.
+*/
+function programarSiguienteCambio() {
 
-    cargar();
+    const ahora = Date.now();
 
-}, 15000);
+    const siguienteCambio =
+        Math.floor(ahora / 15000) * 15000 + 15000;
 
+    const tiempoEspera =
+        siguienteCambio - ahora + 50;
+
+    setTimeout(function() {
+
+        actualizarPantalla(false);
+        programarSiguienteCambio();
+
+    }, tiempoEspera);
+}
+
+programarSiguienteCambio();
+
+/*
+Actualiza los datos del Sheet cada 60 segundos.
+Esto no controla el cambio de idioma.
+*/
+setInterval(function() {
+
+    actualizarDatos();
+
+}, 60000);
 </script>
 </body>
 </html>
