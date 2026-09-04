@@ -180,21 +180,27 @@ body{
 }
 
 .cuerpo-bloque{
-    padding:12px;
+    padding:10px 12px;
     height:160px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
 
+    overflow:hidden;
+    min-width:0;
 }
 .item{
-    font-size:38px;
+    font-size:clamp(18px, 1.35vw, 26px);
     font-weight:600;
     text-transform:uppercase;
     text-align:center;
-    margin:12px 0;
-    line-height:1.3;
+    margin:7px 0;
+    line-height:1.15;
+    width:100%;
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:normal;
 }
 
 .tv-placeholder{
@@ -247,24 +253,33 @@ body{
     margin:0;
     background:transparent;
 }
-    .item-con-iconos{
+   .item-con-iconos{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:8px;
-    margin:8px 0;
+    flex-wrap:wrap;
+    column-gap:7px;
+    row-gap:3px;
+    margin:7px 0;
+    width:100%;
+    min-width:0;
 }
 
 .item-texto{
     text-transform:uppercase;
+    min-width:0;
+    max-width:calc(100% - 65px);
+    overflow-wrap:anywhere;
+    word-break:normal;
+    white-space:normal;
 }
 
 .icono-alergeno{
     width:22px;
     height:22px;
     object-fit:contain;
+    flex:0 0 22px;
 }
-
 </style>
 
 </head>
