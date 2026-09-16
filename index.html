@@ -29,7 +29,7 @@ body{
     font-family:'Ciutadella', Arial, sans-serif;
 }
 .header{
-    background:#B05AB1;
+    background:#000000;
     color:white;
 
     padding:12px 30px;
@@ -38,11 +38,11 @@ body{
 }
 
 .titulo{
-    font-size:clamp(26px, 2.5vw, 42px);
+    font-size:clamp(30px, 2.5vw, 42px);
     font-weight:600;
 }
 .subtitulo{
-    font-size:20px;
+    font-size:22px;
     opacity:0.95;
 }
 
@@ -120,14 +120,14 @@ body{
 }
 
 .servicio{
-    background:#D92D0F;
+    background:#942D83;
     color:white;
 
     text-align:center;
 
     padding:12px;
 
-    font-size:28px;
+    font-size:34px;
     font-weight:600;
 
     border-radius:12px;
@@ -155,30 +155,30 @@ body{
 
     padding:14px;
 
-    font-size:24px;
+    font-size:28px;
 
     font-weight:600;
 }
 
 .primero{
-  background:#FDE4C2;
-    color:#C76B00;
+    background:#FF6600;
+    color:white;
 }
 
 .segundo{
-    background:#FDE4C2;
-    color:#C76B00;
+    background:#FF6600;
+    color:white;
 }
 
 .vegano{
     background:#9fd48c;
+    color:white;
 }
 
 .postre{
-    background:#FDE4C2;
-    color:#C76B00;
+    background:#FF6600;
+    color:white;
 }
-
 .cuerpo-bloque{
     padding:10px 12px;
     height:160px;
@@ -191,7 +191,7 @@ body{
     min-width:0;
 }
 .item{
-    font-size:clamp(18px, 1.35vw, 26px);
+    font-size:clamp(22px, 1.5vw, 30px);
     font-weight:600;
     text-transform:uppercase;
     text-align:center;
@@ -227,19 +227,24 @@ body{
 
 .logo-sjd{
     position:absolute;
-
-    top:15px;
+    top:10px;
     right:20px;
-
-    height:55px;
+    height:80px;
     width:auto;
-
     object-fit:contain;
 }
+
 .footer{
     flex-shrink:0;
     width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
     text-align:center;
+
     font-size:17px;
     color:#666;
     margin-top:10px;
@@ -280,6 +285,15 @@ body{
     object-fit:contain;
     flex:0 0 22px;
 }
+#creditosAlergenos,
+#creditosFinales{
+    width:100vw;
+    text-align:center;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+    
 </style>
 
 </head>
@@ -298,8 +312,8 @@ body{
         </div>
     </div>
 
-  <img src="SJD%20MARCA.png"
-     class="logo-sjd">
+<img src="SJD MARCA NEGATIU H-01.png" class="logo-sjd">
+
   
 
 </div>
@@ -346,7 +360,7 @@ VEGANO
 <div class="bloque">
 
 <div class="titulo-bloque postre">
-POSTRE
+POSTRES
 </div>
 
 </div>
@@ -390,7 +404,7 @@ VEGANO
 <div class="bloque">
 
     <div class="titulo-bloque postre">
-        POSTRE
+        POSTRES
     </div>
 
 </div>
